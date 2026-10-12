@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-
+import fotoBotol from '../../assets/Gambar_BotolKaca_Beranda.png'
+import fotoVas from '../../assets/Gambar_VasMeja_Beranda.png'
 
 export default function Hero() {
   return (
@@ -32,18 +33,30 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Sebelum dan sesudah. Ganti kotak gradien dengan <img> kalau foto sudah ada */}
         <div className="grid grid-cols-2 gap-4">
           <figure className="bg-white p-3 pb-2 rounded-xl shadow-[0_2px_0_#7A5C47] -rotate-2">
-            <div className="aspect-[3/4] rounded-md bg-linear-to-br from-latar-alt to-pendukung" />
+            <div className="aspect-[3/4] rounded-md bg-linear-to-br from-latar-alt to-pendukung overflow-hidden">
+              <img
+                src={fotoBotol}
+                alt="Botol kaca bekas"
+                className="w-full h-full object-contain"
+              />
+            </div>
             <figcaption className="pt-2 text-center text-sm font-semibold text-primer">
               Botol kaca bekas
             </figcaption>
           </figure>
+
           <figure className="bg-white p-3 pb-2 rounded-xl shadow-[0_2px_0_#7A5C47] rotate-2">
-            <div className="aspect-[3/4] rounded-md bg-linear-to-br from-latar-alt to-sekunder" />
+            <div className="aspect-[3/4] rounded-md bg-linear-to-br from-latar-alt to-sekunder overflow-hidden">
+              <img
+                src={fotoVas}
+                alt="Vas bunga anyaman"
+                className="w-full h-full object-contain"
+              />
+            </div>
             <figcaption className="pt-2 text-center text-sm font-semibold text-primer">
-              Vas meja anyaman
+              Vas bunga anyaman
             </figcaption>
           </figure>
         </div>

@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primer: #4A3728;
+  --color-sekunder: #7A5C47;
+  --color-pendukung: #8A917A;
+  --color-latar: #F3EBE0;
+  --color-latar-alt: #E6D8C5;
+  --color-teks: #3B2F28;
+  --font-judul: "Fraunces", Georgia, serif;
+  --font-isi: "Nunito Sans", system-ui, sans-serif;
+}
+
+body { background: var(--color-latar); color: var(--color-teks); font-family: var(--font-isi); }

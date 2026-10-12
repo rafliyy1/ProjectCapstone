@@ -1,8 +1,18 @@
+import Hero from '../components/Beranda/Hero'
+import TentangSingkat from '../components/Beranda/TentangSingkat'
+import ProdukUnggulan from '../components/Beranda/ProdukUnggulan'
+import FaqSection from '../components/Beranda/FaqSection'
+import AjakanKontak from '../components/Beranda/AjakanKontak'
+
 export default function Beranda() {
+  {/* Dikerjakan oleh: Rafli Gustiansyah */}
   return (
-    <section className="max-w-[1200px] mx-auto px-6 py-16">
-      <h1 className="font-judul text-4xl font-bold text-primer">Beranda</h1>
-      {/* Halaman ini dikerjakan oleh [nama]. */}
-    </section>
+    <>
+      <Hero />
+      <TentangSingkat />
+      <ProdukUnggulan />
+      <FaqSection />
+      <AjakanKontak />
+    </>
   )
 }

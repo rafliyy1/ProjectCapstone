@@ -10,9 +10,15 @@ export const produkUnggulan = [
   { id: 3, nama: '', bahan: '', harga: null, label: '' },
 ]
 
-
 export const faq = [
   { tanya: 'Apakah bahannya aman dipakai?', jawab: 'Semua bahan dicuci dan disortir dulu sebelum dirangkai menjadi produk.' },
   { tanya: 'Apakah bisa pesan sesuai keinginan?', jawab: 'Bisa. Ceritakan kebutuhanmu lewat halaman Kontak, kami kabari kemungkinannya.' },
   { tanya: 'Berapa lama pengerjaan satu pesanan?', jawab: 'Umumnya 3 sampai 7 hari kerja, tergantung jenis dan jumlah produk.' },
+]
+
+export const langkahProses = [
+  { judul: 'Kumpulkan', isi: 'Bahan kami ambil dari warga, konveksi, dan warung sekitar.' },
+  { judul: 'Bersihkan', isi: 'Dicuci, disortir, dan dipilih yang masih layak pakai.' },
+  { judul: 'Rangkai', isi: 'Pengrajin menganyam, memotong, dan merakit satu per satu.' },
+  { judul: 'Kirim', isi: 'Dikemas dengan kardus dan kertas bekas, lalu dikirim ke tempatmu.' },
 ]

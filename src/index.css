@@ -3,12 +3,35 @@
 @theme {
   --color-primer: #4A3728;
   --color-sekunder: #7A5C47;
-  --color-pendukung: #8A917A;
-  --color-latar: #F3EBE0;
-  --color-latar-alt: #E6D8C5;
-  --color-teks: #3B2F28;
+  --color-pendukung: #8A9A7A;
+  --color-latar: #F5EBE0;
+  --color-latar-alt: #E8DCC8;
+  --color-teks: #3D2B28;
+
+  --color-espresso: #4A3728;
+  --color-mocha: #7A5C47;
+  --color-zaitun: #8A9A7A;
+  --color-oatmeal: #E8DCC8;
+  --color-krim: #F5EBE0;
+  --color-cokelat-tua: #3D2B28;
+
   --font-judul: "Fraunces", Georgia, serif;
   --font-isi: "Nunito Sans", system-ui, sans-serif;
+  --font-aksen: "Caveat", cursive;
 }
 
-body { background: var(--color-latar); color: var(--color-teks); font-family: var(--font-isi); }
+:root {
+  --color-espresso: #4A3728;
+  --color-mocha: #7A5C47;
+  --color-zaitun: #8A9A7A;
+  --color-oatmeal: #E8DCC8;
+  --color-krim: #F5EBE0;
+  --color-cokelat-tua: #3D2B28;
+}
+
+body {
+  background: var(--color-latar);
+  color: var(--color-teks);
+  font-family: var(--font-isi);
+  line-height: 1.6;
+}

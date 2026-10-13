@@ -9,6 +9,7 @@
   --color-teks: #3B2F28;
   --font-judul: "Fraunces", Georgia, serif;
   --font-isi: "Nunito Sans", system-ui, sans-serif;
+  --font-aksen: "Caveat", cursive;
 }
 
 body { background: var(--color-latar); color: var(--color-teks); font-family: var(--font-isi); }

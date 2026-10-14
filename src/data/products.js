@@ -150,6 +150,6 @@ export const products = [
     deskripsi: 'Karton tebal padat dirakit dengan kompartemen bersekat, menjaga meja belajarmu tetap rapi tanpa menghasilkan limbah baru.',
     harga: 60000,
     bahan: 'karton bekas',
-    gambar: '/products/organizer-organizer-meja-karton.jpg',
+    gambar: '/products/organizer-meja-karton.jpg',
   },
 ]

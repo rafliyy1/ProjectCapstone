@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { categories, products } from '../data/products'
-import SearchBar from '../components/SearchBar'
-import CategoryFilter from '../components/CategoryFilter'
-import ProductGrid from '../components/ProductGrid'
+import SearchBar from '../components/Produk/SearchBar'
+import CategoryFilter from '../components/Produk/CategoryFilter'
+import ProductGrid from '../components/Produk/ProductGrid'
 
 export default function Produk() {
   const [searchTerm, setSearchTerm] = useState('')

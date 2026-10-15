@@ -11,9 +11,7 @@ export default function InformasiKontak() {
       {/* Kartu Cepat WhatsApp */}
       <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_2px_0_#7A5C47] border border-latar-alt">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-latar flex items-center justify-center p-2.5">
-            <img src={iconWhatsapp} alt="WhatsApp Reka Limbah" className="w-full h-full object-contain" />
-          </div>
+
           <div>
             <h2 className="font-judul text-xl font-bold text-primer">Chat WhatsApp</h2>
             <p className="text-sm text-teks/75">Respon cepat di jam kerja</p>
@@ -34,11 +32,6 @@ export default function InformasiKontak() {
           <span>Hubungi via WhatsApp</span>
         </a>
 
-        {infoKontak.whatsapp.isSementara && (
-          <p className="text-xs text-teks/60 mt-3 text-center">
-            * Nomor sementara: <span className="font-semibold">{infoKontak.whatsapp.nomorTampilan}</span>
-          </p>
-        )}
       </div>
 
       {/* Kartu Detail Alamat & Email */}
@@ -46,11 +39,6 @@ export default function InformasiKontak() {
         <div>
           <div className="flex items-center justify-between gap-2 mb-1.5">
             <h3 className="font-judul text-lg font-bold text-primer">Alamat Bengkel Kerja</h3>
-            {infoKontak.workshop.isSementara && (
-              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-latar-alt text-primer">
-                Data Sementara
-              </span>
-            )}
           </div>
           <p className="text-sm font-semibold text-teks">{infoKontak.workshop.namaTempat}</p>
           <p className="text-sm text-teks/80 leading-relaxed mt-0.5">{infoKontak.workshop.alamatLengkap}</p>
@@ -62,11 +50,6 @@ export default function InformasiKontak() {
         <div>
           <div className="flex items-center justify-between gap-2 mb-1.5">
             <h3 className="font-judul text-lg font-bold text-primer">Surat Elektronik (Email)</h3>
-            {infoKontak.email.isSementara && (
-              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-latar-alt text-primer">
-                Data Sementara
-              </span>
-            )}
           </div>
           <a
             href={`mailto:${infoKontak.email.alamat}`}

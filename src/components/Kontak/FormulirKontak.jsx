@@ -76,7 +76,7 @@ export default function FormulirKontak() {
           Kirim Pesan
         </span>
         <h2 className="font-judul text-2xl sm:text-3xl font-bold text-primer mt-1">
-          Tulis Pesan untuk Pengrajin
+          Tulis Pesan untuk Kami
         </h2>
         <p className="text-sm text-teks/80 mt-1.5">
           Punya ide kreasi, pertanyaan pesanan kustom, atau tawaran bahan daur ulang? Silakan isi formulir di bawah.
@@ -174,7 +174,7 @@ export default function FormulirKontak() {
           {/* Input Pesan */}
           <div>
             <label htmlFor="pesan" className="block text-sm font-bold text-primer mb-1.5">
-              Pesan atau Rincian Ide <span className="text-sekunder">*</span>
+              Rincian Pesan <span className="text-sekunder">*</span>
             </label>
             <textarea
               id="pesan"

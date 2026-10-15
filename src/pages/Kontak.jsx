@@ -3,7 +3,6 @@ import InformasiKontak from '../components/Kontak/InformasiKontak'
 import { faqKontakSingkat } from '../data/Kontak'
 
 export default function Kontak() {
-  {/* Dikerjakan oleh: Anggota Capstone Reka Limbah - Fitur Halaman Kontak */}
   return (
     <div className="py-12 md:py-20">
       <div className="max-w-[1200px] mx-auto px-6">

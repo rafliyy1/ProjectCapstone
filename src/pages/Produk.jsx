@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { categories, products } from '../data/products'
+import { categories } from '../data/products'
+import { useApp } from '../context/AppContext'
 import SearchBar from '../components/Produk/SearchBar'
 import CategoryFilter from '../components/Produk/CategoryFilter'
 import ProductGrid from '../components/Produk/ProductGrid'
 
 export default function Produk() {
+  const { products } = useApp()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('Semua')
 
@@ -80,4 +82,4 @@ export default function Produk() {
       />
     </section>
   )
-}
+}

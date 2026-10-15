@@ -1,13 +1,12 @@
 export const statistik = [
   { angka: '1.200 kg', teks: 'limbah dimanfaatkan sejak 2022' },
   { angka: '8', teks: 'pengrajin tetap dari warga sekitar' },
-  { angka: '4', teks: 'jenis bahan: kaca, kain, plastik, kayu' },
 ]
 
 export const produkUnggulan = [
-  { id: 1, nama: '', bahan: '', harga: null, label: '' },
-  { id: 2, nama: '', bahan: '', harga: null, label: '' },
-  { id: 3, nama: '', bahan: '', harga: null, label: '' },
+  { id: 1, nama: 'Tas Totebag Perca', bahan: 'kain perca konveksi', harga: 85000, label: 'Tas & Dompet', gambar: '/products/tas-totebag-perca.jpg' },
+  { id: 2, nama: 'Lampu Gantung Kaleng', bahan: 'kaleng bekas', harga: 100000, label: 'Dekorasi Rumah', gambar: '/products/lampu-gantung-kaleng.jpg' },
+  { id: 3, nama: 'Rak Dinding Palet', bahan: 'kayu palet', harga: 180000, label: 'Furnitur Kayu Bekas', gambar: '/products/rak-dinding-kayu.jpg' },
 ]
 
 export const faq = [

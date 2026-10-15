@@ -1,21 +1,29 @@
 import { Link } from 'react-router-dom'
 import fotoBotol from '../../assets/Gambar_BotolKaca_Beranda.png'
 import fotoVas from '../../assets/Gambar_VasMeja_Beranda.png'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 export default function Hero() {
+  const [textRef, textVisible] = useScrollReveal()
+  const [imgRef, imgVisible] = useScrollReveal()
+
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span className="inline-block px-3 py-0.5 rounded-full bg-latar-alt text-primer text-sm font-bold mb-4">
-            100% bahan daur ulang
-          </span>
+        <div
+          ref={textRef}
+          style={{
+            opacity: textVisible ? 1 : 0,
+            transform: textVisible ? 'translateY(0)' : 'translateY(32px)',
+            transition: 'opacity 0.7s ease, transform 0.7s ease',
+          }}
+        >
           <h1 className="font-judul font-bold text-primer text-4xl lg:text-5xl leading-tight mb-4">
-            Dari yang terbuang, jadi yang dikenang.
+            Dari yang terbuang, jadi yang dikenang
           </h1>
           <p className="text-lg max-w-[34em]">
-            Kami mengubah botol, kain perca, dan kayu bekas menjadi hiasan, wadah, dan
-            perlengkapan rumah yang dibuat tangan oleh pengrajin lokal.
+            Kami mengubah botol, kain perca, dan barang bekas lainnya menjadi hiasan, wadah, dan
+            perlengkapan rumah yang dibuat oleh para pengrajin lokal.
           </p>
           <div className="flex flex-wrap gap-3 mt-7">
             <Link
@@ -33,7 +41,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div
+          ref={imgRef}
+          className="grid grid-cols-2 gap-4"
+          style={{
+            opacity: imgVisible ? 1 : 0,
+            transform: imgVisible ? 'translateY(0)' : 'translateY(32px)',
+            transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s',
+          }}
+        >
           <figure className="bg-white p-3 pb-2 rounded-xl shadow-[0_2px_0_#7A5C47] -rotate-2">
             <div className="aspect-[3/4] rounded-md bg-linear-to-br from-latar-alt to-pendukung overflow-hidden">
               <img

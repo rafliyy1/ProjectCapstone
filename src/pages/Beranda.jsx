@@ -6,7 +6,6 @@ import AjakanKontak from '../components/Beranda/AjakanKontak'
 import ProsesLangkah from '../components/Beranda/ProsesLangkah'
 
 export default function Beranda() {
-  {/* Dikerjakan oleh: Rafli Gustiansyah */}
   return (
     <>
       <Hero />

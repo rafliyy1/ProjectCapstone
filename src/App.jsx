@@ -4,10 +4,15 @@ import Beranda from './pages/Beranda'
 import Produk from './pages/Produk'
 import Tentang from './pages/Tentang'
 import Kontak from './pages/Kontak'
+import Admin from './pages/Admin'
 
 export default function App() {
   return (
     <Routes>
+      {/* Halaman Admin – tanpa Layout (navbar/footer pengguna) */}
+      <Route path="/admin" element={<Admin />} />
+
+      {/* Halaman Pengguna – dengan Layout */}
       <Route element={<Layout />}>
         <Route path="/" element={<Beranda />} />
         <Route path="/produk" element={<Produk />} />
@@ -16,4 +21,4 @@ export default function App() {
       </Route>
     </Routes>
   )
-}
+}

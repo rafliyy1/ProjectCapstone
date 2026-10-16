@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { opsiSubjekFormulir } from '../../data/Kontak'
+import { useApp } from '../../context/AppContext'
 
 const initialState = {
   nama: '',
@@ -9,6 +10,7 @@ const initialState = {
 }
 
 export default function FormulirKontak() {
+  const { addMessage } = useApp()
   const [formData, setFormData] = useState(initialState)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // 'idle' | 'loading' | 'success'
@@ -57,8 +59,15 @@ export default function FormulirKontak() {
 
     setStatus('loading')
 
-    // Simulasi pengiriman formulir lokal (2 detik)
+    // Simulasi pengiriman formulir lokal (1 detik)
     setTimeout(() => {
+      // Simpan pesan ke context agar admin bisa melihatnya
+      addMessage({
+        nama: formData.nama.trim(),
+        email: formData.email.trim(),
+        subjek: formData.subjek,
+        pesan: formData.pesan.trim(),
+      })
       setStatus('success')
     }, 1000)
   }
@@ -214,3 +223,4 @@ export default function FormulirKontak() {
     </div>
   )
 }
+

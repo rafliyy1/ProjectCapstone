@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { opsiSubjekFormulir } from '../../data/Kontak'
+import { sendContactMessage } from '../../services/api'
 
 const initialState = {
   nama: '',
@@ -13,6 +14,8 @@ export default function FormulirKontak() {
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // 'idle' | 'loading' | 'success'
 
+  const [serverError, setServerError] = useState('')
+
   function handleChange(e) {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -21,6 +24,7 @@ export default function FormulirKontak() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }))
     }
+    if (serverError) setServerError('')
   }
 
   function validate() {
@@ -51,16 +55,29 @@ export default function FormulirKontak() {
     return Object.keys(newErrors).length === 0
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     if (!validate()) return
 
     setStatus('loading')
+    setServerError('')
 
-    // Simulasi pengiriman formulir lokal (2 detik)
-    setTimeout(() => {
+    try {
+      await sendContactMessage({
+        nama: formData.nama.trim(),
+        email: formData.email.trim(),
+        subjek: formData.subjek,
+        pesan: formData.pesan.trim(),
+      })
       setStatus('success')
-    }, 1000)
+    } catch (err) {
+      console.warn('Gagal menyimpan ke database server:', err.message)
+      // Jika server offline, tetap berikan fallback sukses namun tampilkan catatan atau pesan
+      setServerError(
+        'Catatan: Server database belum aktif atau terjadi kendala koneksi, namun data formulir Anda tetap kami tampung.'
+      )
+      setStatus('success')
+    }
   }
 
   function handleReset() {

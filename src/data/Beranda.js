@@ -1,6 +1,7 @@
 export const statistik = [
   { angka: '1.200 kg', teks: 'limbah dimanfaatkan sejak 2022' },
   { angka: '8', teks: 'pengrajin tetap dari warga sekitar' },
+  { angka: '100%', teks: 'bahan baku dari daur ulang' },
 ]
 
 export const produkUnggulan = [

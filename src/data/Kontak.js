@@ -4,17 +4,7 @@
  */
 
 export const infoKontak = {
-  whatsapp: {
-    nomorTampilan: '0812-1000-1010', // Sesuai data pada Footer
-    nomorLink: '6281210001010',
-    pesanDefault: 'Halo Reka Limbah, saya tertarik untuk bertanya mengenai produk kerajinan daur ulang.',
-    isSementara: true,
-  },
-  email: {
-    alamat: 'kontak@rekalimbah.id',
-    catatan: '[DATA SEMENTARA - Belum dikonfigurasi domain resmi]',
-    isSementara: true,
-  },
+
   workshop: {
     namaTempat: 'Bengkel Kreatif Reka Limbah',
     alamatLengkap: 'Jl. Daur Mandiri No. 24, Lingkungan Pengrajin Daur Ulang',

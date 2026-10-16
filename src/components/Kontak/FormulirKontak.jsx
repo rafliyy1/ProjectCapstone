@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { opsiSubjekFormulir } from '../../data/Kontak'
+import { sendContactMessage } from '../../services/api'
 import { useApp } from '../../context/AppContext'
 
 const initialState = {
@@ -15,6 +16,8 @@ export default function FormulirKontak() {
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // 'idle' | 'loading' | 'success'
 
+  const [serverError, setServerError] = useState('')
+
   function handleChange(e) {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -23,6 +26,7 @@ export default function FormulirKontak() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }))
     }
+    if (serverError) setServerError('')
   }
 
   function validate() {
@@ -53,28 +57,41 @@ export default function FormulirKontak() {
     return Object.keys(newErrors).length === 0
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     if (!validate()) return
 
     setStatus('loading')
+    setServerError('')
 
-    // Simulasi pengiriman formulir lokal (1 detik)
-    setTimeout(() => {
-      // Simpan pesan ke context agar admin bisa melihatnya
-      addMessage({
-        nama: formData.nama.trim(),
-        email: formData.email.trim(),
-        subjek: formData.subjek,
-        pesan: formData.pesan.trim(),
-      })
+    const payload = {
+      nama: formData.nama.trim(),
+      email: formData.email.trim(),
+      subjek: formData.subjek,
+      pesan: formData.pesan.trim(),
+    }
+
+    // Simpan pesan ke context agar admin bisa melihatnya
+    addMessage(payload)
+
+    try {
+      // Kirim juga ke database lewat server
+      await sendContactMessage(payload)
       setStatus('success')
-    }, 1000)
+    } catch (err) {
+      console.warn('Gagal menyimpan ke database server:', err.message)
+      // Jika server offline, tetap berikan fallback sukses namun tampilkan catatan
+      setServerError(
+        'Catatan: Server database belum aktif atau terjadi kendala koneksi, namun data formulir Anda tetap kami tampung.'
+      )
+      setStatus('success')
+    }
   }
 
   function handleReset() {
     setFormData(initialState)
     setErrors({})
+    setServerError('')
     setStatus('idle')
   }
 
@@ -103,6 +120,11 @@ export default function FormulirKontak() {
           <p className="text-sm text-teks/85 max-w-md leading-relaxed mb-6">
             Terima kasih, <strong className="text-primer">{formData.nama}</strong>. Kami telah menerima pesanmu dan akan membalas ke <strong className="text-primer">{formData.email}</strong> dalam waktu maksimal 1 hari kerja.
           </p>
+          {serverError && (
+            <p className="text-xs text-teks/70 max-w-md leading-relaxed mb-6">
+              {serverError}
+            </p>
+          )}
           <button
             type="button"
             onClick={handleReset}
@@ -223,4 +245,3 @@ export default function FormulirKontak() {
     </div>
   )
 }
-

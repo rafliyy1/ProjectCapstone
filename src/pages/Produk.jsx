@@ -1,17 +1,36 @@
-import { useState } from 'react'
-import { categories } from '../data/products'
-import { useApp } from '../context/AppContext'
+import { useState, useEffect } from 'react'
+import { categories, products as initialProducts } from '../data/products'
+import { fetchProducts } from '../services/api'
 import SearchBar from '../components/Produk/SearchBar'
 import CategoryFilter from '../components/Produk/CategoryFilter'
 import ProductGrid from '../components/Produk/ProductGrid'
 
 export default function Produk() {
-  const { products } = useApp()
+  const [productList, setProductList] = useState(initialProducts)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('Semua')
 
+  useEffect(() => {
+    let isMounted = true
+    async function loadData() {
+      try {
+        const res = await fetchProducts()
+        if (isMounted && res && Array.isArray(res.data)) {
+          setProductList(res.data)
+        }
+      } catch (err) {
+        // Server tidak aktif: tetap tampilkan data statis bawaan
+        console.warn('Gagal memuat produk dari server:', err.message)
+      }
+    }
+    loadData()
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
   // Search dan filter kategori bekerja bersamaan (real-time & case-insensitive)
-  const filteredProducts = products.filter((item) => {
+  const filteredProducts = productList.filter((item) => {
     const matchesCategory =
       selectedCategory === 'Semua' || item.kategori === selectedCategory
 
@@ -60,7 +79,7 @@ export default function Produk() {
               Kategori Produk
             </span>
             <span className="text-xs sm:text-sm text-sekunder font-medium">
-              Menampilkan {filteredProducts.length} dari {products.length} produk
+              Menampilkan {filteredProducts.length} dari {productList.length} produk
             </span>
           </div>
           <CategoryFilter
@@ -82,4 +101,4 @@ export default function Produk() {
       />
     </section>
   )
-}
+}

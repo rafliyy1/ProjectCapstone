@@ -1,11 +1,13 @@
 import iconInstagram from '../assets/icon_instagram.png'
 import iconFacebook from '../assets/icon_facebook.png'
 import iconWhatsapp from '../assets/icon_whatsapp.png'
+import iconGmail from '../assets/icon_gmail.png'
 
 const sosmed = [
   { nama: 'Instagram', icon: iconInstagram, teks: '@rekalimbah' },
   { nama: 'Facebook', icon: iconFacebook, teks: 'Reka Limbah' },
   { nama: 'WhatsApp', icon: iconWhatsapp, teks: '0812-1000-1010' },
+  { nama: 'Gmail', icon: iconGmail, teks: 'rekalimbah@gmail.com' },
 ]
 
 export default function Footer() {

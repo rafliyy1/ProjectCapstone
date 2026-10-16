@@ -11,6 +11,7 @@ export default function App() {
     <Routes>
       {/* Halaman Admin – tanpa Layout (navbar/footer pengguna) */}
       <Route path="/admin" element={<Admin />} />
+      <Route path="/login" element={<Admin />} />
 
       {/* Halaman Pengguna – dengan Layout */}
       <Route element={<Layout />}>
@@ -21,4 +22,4 @@ export default function App() {
       </Route>
     </Routes>
   )
-}
+}

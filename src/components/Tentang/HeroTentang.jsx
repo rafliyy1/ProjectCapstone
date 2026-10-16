@@ -5,9 +5,6 @@ export default function HeroTentang() {
     <section className="py-12 md:py-16">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="max-w-3xl">
-          <span className="inline-block px-3 py-0.5 rounded-full bg-latar-alt text-primer text-sm font-bold mb-4">
-            {heroTentang.badge}
-          </span>
           <h1 className="font-judul text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-primer leading-tight mb-4">
             {heroTentang.judul}
           </h1>

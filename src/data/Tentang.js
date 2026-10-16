@@ -4,9 +4,8 @@
  */
 
 export const heroTentang = {
-  badge: 'Mengenal Reka Limbah',
   judul: 'Tentang Reka Limbah',
-  motto: '"Dari yang terbuang, jadi yang dikenang"',
+  motto: 'Dari yang terbuang, jadi yang dikenang',
   deskripsi:
     'Reka Limbah berfokus pada pemanfaatan kembali bahan bekas yang masih layak pakai menjadi produk bernilai guna dan estetis untuk kebutuhan sehari-hari, sekaligus mendukung karya pengrajin di lingkungan sekitar.',
 }
@@ -19,9 +18,9 @@ export const ceritaTentang = {
     'Bagi kami, setiap karya yang tercipta adalah bentuk penghormatan terhadap lingkungan dan wujud apresiasi atas daya cipta pengrajin lokal.',
   ],
   fokusBahan: [
-    { nama: 'Kaca', keterangan: 'Botol dan wadah kaca yang dibersihkan serta dibentuk kembali' },
-    { nama: 'Kain', keterangan: 'Sisa perca konveksi yang dijahit dan dianyam' },
-    { nama: 'Plastik', keterangan: 'Wadah plastik bersih yang dialihfungsikan' },
+    { nama: 'Kaca', keterangan: 'Botol dan wadah kaca yang dapat didaur ulang' },
+    { nama: 'Kain', keterangan: 'Sisa perca konveksi yang dijahit menjadi produk' },
+    { nama: 'Plastik', keterangan: 'Plastik kemasan maupun wadah plastik' },
     { nama: 'Kayu', keterangan: 'Potongan kayu palet dan sisa pertukangan' },
   ],
 }
@@ -34,7 +33,7 @@ export const visiMisiTentang = {
     judul: 'Visi',
     konten:
       'Menjadi ruang kreasi yang menghidupkan kembali bahan-bahan terbuang menjadi produk fungsional dan estetis, serta membangun ekosistem kerajinan lokal yang ramah lingkungan dan berkelanjutan.',
-    catatan: '* Komitmen jangka panjang untuk pelestarian lingkungan dan kemandirian pengrajin.',
+
   },
   misi: {
     label: 'Langkah Nyata',
@@ -44,7 +43,6 @@ export const visiMisiTentang = {
       'Mendukung dan memberdayakan karya pengrajin di lingkungan sekitar melalui kolaborasi pengerjaan yang adil dan berkelanjutan.',
       'Mendorong kebiasaan penggunaan kembali bahan dan menumbuhkan kesadaran kolektif terhadap gaya hidup minim limbah.',
     ],
-    catatan: '* Dijalankan melalui kemitraan erat bersama warga dan pengrajin lokal.',
   },
 }
 
@@ -92,7 +90,7 @@ export const statistikTentang = {
   data: [
     { angka: '1.200 kg', teks: 'limbah dimanfaatkan sejak 2022' },
     { angka: '8', teks: 'pengrajin tetap dari warga sekitar' },
-    { angka: '4', teks: 'jenis bahan: kaca, kain, plastik, kayu' },
+    { angka: '100%', teks: 'bahan baku dari daur ulang' },
   ],
 }
 

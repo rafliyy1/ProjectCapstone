@@ -22,7 +22,7 @@ export default function CeritaTentang() {
                 Fokus Bahan yang Diolah
               </h3>
               <p className="text-sm text-teks/85 mb-4 leading-relaxed">
-                Kami secara konsisten memanfaatkan 4 jenis material utama yang diperoleh dari lingkungan sekitar:
+                Material utama produk kami tidak hanya bersumber dari lingkungan sekitar, tetapi juga dari kepedulian warga sekitar yang mengantar dan berkolaborasi bersama kami
               </p>
               <ul className="space-y-2.5 text-sm font-medium text-teks">
                 {ceritaTentang.fokusBahan.map((item) => (

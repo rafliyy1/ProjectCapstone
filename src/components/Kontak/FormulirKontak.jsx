@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { opsiSubjekFormulir } from '../../data/Kontak'
 import { sendContactMessage } from '../../services/api'
+import { useApp } from '../../context/AppContext'
 
 const initialState = {
   nama: '',
@@ -10,6 +11,7 @@ const initialState = {
 }
 
 export default function FormulirKontak() {
+  const { addMessage } = useApp()
   const [formData, setFormData] = useState(initialState)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // 'idle' | 'loading' | 'success'
@@ -62,17 +64,23 @@ export default function FormulirKontak() {
     setStatus('loading')
     setServerError('')
 
+    const payload = {
+      nama: formData.nama.trim(),
+      email: formData.email.trim(),
+      subjek: formData.subjek,
+      pesan: formData.pesan.trim(),
+    }
+
+    // Simpan pesan ke context agar admin bisa melihatnya
+    addMessage(payload)
+
     try {
-      await sendContactMessage({
-        nama: formData.nama.trim(),
-        email: formData.email.trim(),
-        subjek: formData.subjek,
-        pesan: formData.pesan.trim(),
-      })
+      // Kirim juga ke database lewat server
+      await sendContactMessage(payload)
       setStatus('success')
     } catch (err) {
       console.warn('Gagal menyimpan ke database server:', err.message)
-      // Jika server offline, tetap berikan fallback sukses namun tampilkan catatan atau pesan
+      // Jika server offline, tetap berikan fallback sukses namun tampilkan catatan
       setServerError(
         'Catatan: Server database belum aktif atau terjadi kendala koneksi, namun data formulir Anda tetap kami tampung.'
       )
@@ -83,6 +91,7 @@ export default function FormulirKontak() {
   function handleReset() {
     setFormData(initialState)
     setErrors({})
+    setServerError('')
     setStatus('idle')
   }
 
@@ -111,6 +120,11 @@ export default function FormulirKontak() {
           <p className="text-sm text-teks/85 max-w-md leading-relaxed mb-6">
             Terima kasih, <strong className="text-primer">{formData.nama}</strong>. Kami telah menerima pesanmu dan akan membalas ke <strong className="text-primer">{formData.email}</strong> dalam waktu maksimal 1 hari kerja.
           </p>
+          {serverError && (
+            <p className="text-xs text-teks/70 max-w-md leading-relaxed mb-6">
+              {serverError}
+            </p>
+          )}
           <button
             type="button"
             onClick={handleReset}

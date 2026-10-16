@@ -7,17 +7,20 @@ import ProductGrid from '../components/Produk/ProductGrid'
 
 export default function Produk() {
   const [productList, setProductList] = useState(initialProducts)
-  const [isLiveDb, setIsLiveDb] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('Semua')
 
   useEffect(() => {
     let isMounted = true
     async function loadData() {
-      const res = await fetchProducts()
-      if (isMounted && res.data) {
-        setProductList(res.data)
-        setIsLiveDb(res.isLive)
+      try {
+        const res = await fetchProducts()
+        if (isMounted && res && Array.isArray(res.data)) {
+          setProductList(res.data)
+        }
+      } catch (err) {
+        // Server tidak aktif: tetap tampilkan data statis bawaan
+        console.warn('Gagal memuat produk dari server:', err.message)
       }
     }
     loadData()

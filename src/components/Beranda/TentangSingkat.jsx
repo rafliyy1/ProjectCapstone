@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { statistik } from '../../data/Beranda'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 

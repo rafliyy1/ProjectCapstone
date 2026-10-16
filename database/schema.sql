@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS messages (
   email VARCHAR(150) NOT NULL,
   subjek VARCHAR(150) NOT NULL,
   pesan TEXT NOT NULL,
+  is_read TINYINT(1) NOT NULL DEFAULT 0,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -50,7 +51,7 @@ CREATE TABLE IF NOT EXISTS admins (
 -- Akun admin default: username "admin", password "admin123"
 -- Password di-hash menggunakan bcrypt ($2a$10$w... / hash standar)
 INSERT INTO admins (username, password, nama)
-VALUES ('admin', '$2b$10$4n9x508Z1sZ9zQ5O8z4zceBhyiUoi9q0q5q95hD0i6b4m0h/D1c6S', 'Administrator Utama')
+VALUES ('admin', '$2b$10$0Txb1AgHQIP7QR6JDHDTAOrD3a9RRgqtBWWcC0glSh.zKVKgPFFa2', 'Administrator Utama')
 ON DUPLICATE KEY UPDATE username=username;
 
 -- 15 Produk Awal dari Reka Limbah

@@ -17,7 +17,7 @@ app.use(express.urlencoded({ limit: '15mb', extended: true }))
 // Health check
 app.get('/api/health', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT 1 + 1 AS solution')
+    await pool.query('SELECT 1 + 1 AS solution')
     res.json({
       status: 'ok',
       message: 'Server dan database MySQL terhubung normal!',

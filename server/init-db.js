@@ -60,9 +60,21 @@ async function initDatabase() {
         email VARCHAR(150) NOT NULL,
         subjek VARCHAR(150) NOT NULL,
         pesan TEXT NOT NULL,
+        is_read TINYINT(1) NOT NULL DEFAULT 0,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     `)
+
+    // Migrasi: tambahkan kolom is_read jika tabel messages sudah ada sebelumnya
+    const [kolomIsRead] = await connection.query(
+      `SELECT COUNT(*) AS ada FROM information_schema.COLUMNS
+       WHERE TABLE_SCHEMA = ? AND TABLE_NAME = 'messages' AND COLUMN_NAME = 'is_read'`,
+      [database]
+    )
+    if (kolomIsRead[0].ada === 0) {
+      console.log('🔧 Menambahkan kolom "is_read" ke tabel "messages"...')
+      await connection.query('ALTER TABLE messages ADD COLUMN is_read TINYINT(1) NOT NULL DEFAULT 0')
+    }
 
     // 5. Buat Tabel Admin
     console.log('📋 Membuat tabel "admins"...')
